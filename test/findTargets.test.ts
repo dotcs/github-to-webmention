@@ -1,7 +1,8 @@
 import assert from 'assert';
 import nock from 'nock';
-import findTargets from '../lib/findTargets';
-import pageContent from './fixtures/page-1-html.js';
+
+import findTargets from '../src/findTargets';
+import pageContent from './fixtures/page-1-html';
 
 describe('findTargets', () => {
   it('should find target urls', async () => {
@@ -12,7 +13,7 @@ describe('findTargets', () => {
       });
 
     const result = await findTargets('https://example.com/test-post');
-    assert.deepEqual(result, [
+    assert.deepStrictEqual(result, [
       'https://www.manning.com/books/css-in-depth',
       'https://www.youtube.com/watch?v=u00FY9vADfQ',
       'https://adactio.com/journal/13831',

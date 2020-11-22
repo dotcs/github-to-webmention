@@ -1,28 +1,27 @@
 module.exports = {
-  extends: ['eslint:recommended'],
-  env: {
-    es6: true,
-  },
-  parser: require.resolve('babel-eslint'),
-  parserOptions: {
-    ecmaVersion: '6',
-    sourceType: 'module',
-  },
-  rules: {
-    'no-shadow': 'warn',
-    'no-unused-vars': 'error',
-    'object-curly-spacing': 0,
-  },
-  globals: {
-    process: true,
-    setTimeout: true,
-    clearTimeout: true,
-    setInterval: true,
-    clearInterval: true,
-    Promise: true,
-    describe: true,
-    it: true,
-    beforeEach: true,
-    afterEach: true,
-  },
-};
+    "env": {
+        "es2020": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        // Include .prettierrc.js rules
+        "prettier/prettier": ['error', {}, { usePrettierrc: true }],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+    },
+}

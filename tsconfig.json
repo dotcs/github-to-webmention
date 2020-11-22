@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "CommonJS",
+    "allowJs": false,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "lib",
+    "baseUrl": ".",
+    "paths": {
+      "microformat-node": ["typings/microformat-node.d.ts"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    // "typings/lib.d.ts",
+    "**/*.ts",
+  ]
+}
