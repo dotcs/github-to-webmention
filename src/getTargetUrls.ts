@@ -20,11 +20,13 @@ export default function getTargetUrls(html: string, sourceUrl: string): Promise<
             links = concatIfPresent(links, hItem.properties['bookmark-of']);
             links = concatIfPresent(links, hItem.properties['like-of']);
             links = concatIfPresent(links, hItem.properties['repost-of']);
-            hItem.properties.content.forEach((content) => {
-                const contentLinks = findContentLinks(content.html);
-                // TODO: resolve relative urls
-                links = links.concat(contentLinks);
-            });
+            if (hItem.properties.content) {
+                hItem.properties.content.forEach((content) => {
+                    const contentLinks = findContentLinks(content.html);
+                    // TODO: resolve relative urls
+                    links = links.concat(contentLinks);
+                });
+            }
             // console.log('links found:', links);
             resolve(links);
         });
