@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import processGitHubCommit from './processGitHubCommit';
-import { RequestBody } from './types';
+import { GitHubWebhook } from './types';
 
 const { BRANCH_NAME } = process.env;
 
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.post('/main', (request, response) => {
     console.log('Request received');
     try {
-        const payload = request.body as RequestBody;
+        const payload = request.body as GitHubWebhook.Push;
 
         if (payload && payload.ref === `refs/heads/${BRANCH_NAME || 'master'}`) {
             if (payload.commits && Array.isArray(payload.commits)) {

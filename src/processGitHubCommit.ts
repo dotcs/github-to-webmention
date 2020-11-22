@@ -2,11 +2,11 @@ import qs from 'qs';
 import axios from 'axios';
 
 import processPage from './processPage';
-import { Commit } from './types';
+import { GitHubWebhook } from './types';
 
 const { CONTENT_DIRECTORY, WEBSITE_URL } = process.env;
 
-export default function processGitHubCommit(commit: Commit): void {
+export default function processGitHubCommit(commit: GitHubWebhook.Commit): void {
     console.log(commit);
     if (!commit.added) {
         return;
