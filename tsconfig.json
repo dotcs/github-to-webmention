@@ -4,7 +4,6 @@
     "module": "CommonJS",
     "allowJs": false,
     "strict": true,
-    "rootDir": "src",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,

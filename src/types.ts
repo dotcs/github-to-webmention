@@ -26,15 +26,15 @@ export interface MicroformatItem {
             text?: string;
             hreflang?: string;
             media?: string;
-        }
-    }
+        };
+    };
 }
 
 interface MicroformatItemProps {
     url: string[];
     photo: string[];
     org: string[];
-    published: string[],
+    published: string[];
     content: HEntryContent[];
     name: string[];
     'in-reply-to': string[];

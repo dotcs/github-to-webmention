@@ -1,7 +1,8 @@
 import assert from 'assert';
 import nock from 'nock';
-import findTargets from '../lib/findTargets';
-import pageContent from './fixtures/page-1-html.js';
+
+import findTargets from '../src/findTargets';
+import pageContent from './fixtures/page-1-html';
 
 describe('findTargets', () => {
   it('should find target urls', async () => {

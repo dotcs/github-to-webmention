@@ -33,7 +33,7 @@ export default function getTargetUrls(html: string, sourceUrl: string): Promise<
     });
 }
 
-/** 
+/**
  * Returns an concatenated list of two lists where the second list is optional.
  */
 function concatIfPresent<T>(list: T[], items?: T[]): T[] {
@@ -45,7 +45,7 @@ function concatIfPresent<T>(list: T[], items?: T[]): T[] {
 
 /**
  * Returns the main HItem based on the URL.
- * 
+ *
  * This method attempts to macth the `url` param against the microformat items
  * and returns the first entry that matches.
  * In case no entry matches the first item is returned that is not an h-card.

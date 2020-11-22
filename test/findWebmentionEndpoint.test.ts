@@ -1,7 +1,7 @@
 import assert from 'assert';
 import nock from 'nock';
 import parseLinkHeader from 'parse-link-header';
-import findWebmentionEndpoint from '../lib/findWebmentionEndpoint';
+import findWebmentionEndpoint from '../src/findWebmentionEndpoint';
 
 describe('parse-link-header', () => {
   it('should parse', () => {
@@ -9,7 +9,7 @@ describe('parse-link-header', () => {
       '<https://api.github.com/webmention>; rel="webmention", ' +
       '<https://api.github.com/user/9287/repos?page=1&per_page=100>; rel="prev"; pet="cat", ' +
       '<https://api.github.com/user/9287/repos?page=5&per_page=100>; rel="last"';
-    const result = parseLinkHeader(header);
+    const result = parseLinkHeader(header)!;
     assert.equal(result.webmention.url, 'https://api.github.com/webmention');
   });
 });
@@ -142,7 +142,7 @@ describe('findWebmentionEndpoint', () => {
   // These test against a suite of tests hosted on webmention.rocks.
   // These are mainly only for initial development and baseline checks.
   describe.skip('webmention.rocks (live tests)', () => {
-    async function run(url, endpointUrl) {
+    async function run(url: string, endpointUrl: string) {
       const result = findWebmentionEndpoint(url);
       assert.equal(await result, endpointUrl);
     }

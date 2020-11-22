@@ -1,12 +1,14 @@
 import assert from 'assert';
+import { MicroformatData } from 'src/types';
 import getTargetUrls, {
   findMainHItem,
   findContentLinks,
-} from '../lib/getTargetUrls';
-import mfData1 from './fixtures/mf-data-1.json';
-import mfData2 from './fixtures/mf-data-2.json';
+} from '../src/getTargetUrls';
 import page1 from './fixtures/page-1-html';
 import page2 from './fixtures/page-2-html';
+
+const mfData1 = require('./fixtures/mf-data-1.json');
+const mfData2 = require('./fixtures/mf-data-2.json');
 
 describe('findContentLinks', () => {
   it('should return return list of links', function() {
@@ -49,7 +51,7 @@ describe('findMainHItem', () => {
 
   it('should return null if mf data has no items', () => {
     const url = 'https://example.com';
-    const result = findMainHItem(url, {});
+    const result = findMainHItem(url, {} as MicroformatData);
     assert.equal(result, null);
   });
 });

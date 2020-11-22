@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {absUrl} from '../lib/util';
+import {absUrl} from '../src/util';
 
 describe('util', () => {
   describe('absUrl', () => {

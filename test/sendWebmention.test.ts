@@ -1,6 +1,6 @@
 import assert from 'assert';
 import nock from 'nock';
-import sendWebmention from '../lib/sendWebmention';
+import sendWebmention from '../src/sendWebmention';
 
 describe('sendWebmention', () => {
   it('should send webmention', async () => {
