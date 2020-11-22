@@ -13,7 +13,7 @@ describe('findTargets', () => {
       });
 
     const result = await findTargets('https://example.com/test-post');
-    assert.deepEqual(result, [
+    assert.deepStrictEqual(result, [
       'https://www.manning.com/books/css-in-depth',
       'https://www.youtube.com/watch?v=u00FY9vADfQ',
       'https://adactio.com/journal/13831',
