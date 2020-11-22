@@ -10,7 +10,7 @@ declare module 'microformat-node' {
         interface GetOptions {
             html: string;
         }
-        type ReqCallback = (err: any, data: MicroformatData) => void;
+        type ReqCallback = (err: Error, data: MicroformatData) => void;
     }
 
     const module: MicroformatNode.Root;
