@@ -10,7 +10,7 @@ describe('parse-link-header', () => {
       '<https://api.github.com/user/9287/repos?page=1&per_page=100>; rel="prev"; pet="cat", ' +
       '<https://api.github.com/user/9287/repos?page=5&per_page=100>; rel="last"';
     const result = parseLinkHeader(header)!;
-    assert.equal(result.webmention.url, 'https://api.github.com/webmention');
+    assert.strictEqual(result.webmention.url, 'https://api.github.com/webmention');
   });
 });
 
@@ -24,7 +24,7 @@ describe('findWebmentionEndpoint', () => {
       });
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should find from link header - relative url', async () => {
@@ -36,7 +36,7 @@ describe('findWebmentionEndpoint', () => {
       });
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should find from link tag', async () => {
@@ -51,7 +51,7 @@ describe('findWebmentionEndpoint', () => {
       );
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should find from link tag - relative url', async () => {
@@ -66,7 +66,7 @@ describe('findWebmentionEndpoint', () => {
       );
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should find from anchor tag', async () => {
@@ -81,7 +81,7 @@ describe('findWebmentionEndpoint', () => {
       );
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should find from anchor tag - relative url', async () => {
@@ -96,7 +96,7 @@ describe('findWebmentionEndpoint', () => {
       );
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention');
+    assert.strictEqual(await result, 'https://example.com/webmention');
   });
 
   it('should should preserve query parameters', async () => {
@@ -108,7 +108,7 @@ describe('findWebmentionEndpoint', () => {
       });
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, 'https://example.com/webmention?query=yes');
+    assert.strictEqual(await result, 'https://example.com/webmention?query=yes');
   });
 
   it('should resolve url relative to path rather than host', async () => {
@@ -123,7 +123,7 @@ describe('findWebmentionEndpoint', () => {
       );
     const result = findWebmentionEndpoint('https://example.com/foo/bar');
 
-    assert.equal(await result, 'https://example.com/foo/bar/webmention');
+    assert.strictEqual(await result, 'https://example.com/foo/bar/webmention');
   });
 
   it('should return null if no endpoint specified', async () => {
@@ -134,7 +134,7 @@ describe('findWebmentionEndpoint', () => {
       });
     const result = findWebmentionEndpoint('https://example.com/foo');
 
-    assert.equal(await result, null);
+    assert.strictEqual(await result, null);
   });
 
   // TODO: follow redirects
@@ -144,7 +144,7 @@ describe('findWebmentionEndpoint', () => {
   describe.skip('webmention.rocks (live tests)', () => {
     async function run(url: string, endpointUrl: string) {
       const result = findWebmentionEndpoint(url);
-      assert.equal(await result, endpointUrl);
+      assert.strictEqual(await result, endpointUrl);
     }
 
     for (let i = 1; i <= 23; i++) {
