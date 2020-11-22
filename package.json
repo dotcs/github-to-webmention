@@ -5,10 +5,13 @@
   "main": "index.js",
   "module": "index.js",
   "scripts": {
+    "compile": "tsc",
     "start": "node ./index.js",
     "heroku": "heroku",
     "dev": "heroku local web",
-    "test": "mocha -r esm"
+    "test": "mocha -r esm",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [
     "indieweb",
@@ -29,9 +32,21 @@
     "parse-link-header": "1.0.1"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/cheerio": "^0.22.22",
+    "@types/esm": "^3.2.0",
+    "@types/express": "^4.17.9",
+    "@types/parse-link-header": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
     "babel-eslint": "^10.1.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "mocha": "^8.2.1",
-    "nock": "^13.0.5"
+    "nock": "^13.0.5",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2"
   },
   "engines": {
     "node": "8.11.4"
